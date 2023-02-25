@@ -1,5 +1,4 @@
 package db;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -8,7 +7,7 @@ import java.sql.SQLException;
 
 public class Db {
 	String _IP="localhost",_PORT="3306",_BD="",
-			_USER="root",_PASSWORD="Theanjheluz1",_SQL="";
+			_USER="root",_PASSWORD="",_SQL="";
 	
 	Connection cn = null;
 	PreparedStatement ps = null;

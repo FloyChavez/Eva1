@@ -22,6 +22,9 @@ public Object getPeliculas (int id, boolean bLista) {
 	return lstPeliculas;
 }
 
+
+
+
 public Object getPelicula(String id, boolean bEntidad) {
 	db.Sentencia (String.format("call sp_getPelicula(%s)",id));
 	String [] aRegistro= db.getRegistro();

@@ -4,11 +4,11 @@
     <description></description>
     <display-name>svlPelicula</display-name>
     <servlet-name>svlPelicula</servlet-name>
-    <servlet-class>svl.svl</servlet-class>
+    <servlet-class>svl.svlPelicula</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>svlPelicula</servlet-name>
-    <url-pattern>/svl</url-pattern>
+    <url-pattern>/svlPelicula</url-pattern>
   </servlet-mapping>
   <display-name>webCinestar_Eclipse</display-name>
   <welcome-file-list>

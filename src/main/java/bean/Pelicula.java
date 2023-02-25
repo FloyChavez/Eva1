@@ -82,7 +82,7 @@ public Pelicula (String[] aRegistro) {
 	
 	if(aRegistro.length==4) {
 		Sinopsis = aRegistro[2];
-		Link = aRegistro[8];
+		Link = aRegistro[3];
 		return;
 	}
 	

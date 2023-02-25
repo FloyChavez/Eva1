@@ -17,8 +17,8 @@
 				</span>
 				<span class="social">Síguenos en: </span>
 				<ul class="menu-principal">
-		    		<li class="menu-item"><a href="svlPelicula?idx=cartelera">Cartelera</a></li>
-		       		<li class="menu-item"><a href="svlPelicula?idx=estrenos">Próximos estrenos</a></li>
+		    		<li class="menu-item"><a href="svlPelicula?id=cartelera">Cartelera</a></li>
+		       		<li class="menu-item"><a href="svlPelicula?id=estrenos">Próximos estrenos</a></li>
 		       		<li class="menu-item"><a href="http://www.cinestar.com.pe/starcard">Star Card</a></li>
 		        	<li class="menu-item"><a href="svlCine">Nuestros Cines</a></li>
 		        	<li class="menu-item"><a href="http://www.cinestar.com.pe/ventas_corporativas">Ventas Corporativas</a></li>
