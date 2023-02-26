@@ -3,11 +3,10 @@
 <%@ page pageEncoding="UTF-8"%>
 
 <br/><h1>Cartelera</h1><br/>
+
 <% List<Pelicula> peliculas = (List) session.getAttribute("data");
 for( Pelicula pelicula: peliculas){
 %>
-
-
 			<div class="contenido-pelicula">
 			<div class="datos-pelicula">
 				<h2><%= pelicula.getTitulo()%></h2><br/>

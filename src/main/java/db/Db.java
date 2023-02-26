@@ -26,7 +26,6 @@ public class Db {
 
 	public void Sentencia(String sql) {
 		if ( cn == null ) return;
-		
 		this._SQL = sql;
 		try {
 			ps = cn.prepareStatement(sql);
@@ -35,46 +34,43 @@ public class Db {
 
 	public String[][] getRegistros() {
 		if ( cn == null ) return null;
-		
 		try {
 			ResultSet rs = ps.executeQuery();
 			if ( rs.last() ) {
 				int filas = rs.getRow();
 				int columnas = rs.getMetaData().getColumnCount();
 				String[][] mRegistros = new String[filas][columnas];
-				
 				rs.beforeFirst();
 				for( int fila=0; rs.next(); fila++ )
 					for( int columna=0; columna < columnas; columna++ )
 						mRegistros[fila][columna] = rs.getString(columna + 1).trim();
-				
 				return mRegistros;
 			}
 			
 		} catch (SQLException e) { e.printStackTrace();	}
-		
 		return null;
 	}
 
 	public String[] getRegistro() {
-if ( cn == null ) return null;
-		
 		try {
 			ResultSet rs = ps.executeQuery();
 			if ( rs.next() ) {
-				int columnas = rs.getMetaData().getColumnCount();
-				String[] aRegistro = new String[columnas];
-				
-				rs.beforeFirst();
-					for( int columna=0; columna < columnas; columna++ )
-						aRegistro[columna] = rs.getString(columna + 1).trim();
-				
+				String [] aRegistro = new String [rs.getMetaData().getColumnCount()];
+					for( int i=0;i<aRegistro.length;i++ )
+						aRegistro[i] = rs.getString(i + 1);
 				return aRegistro;
 			}
-			
-		} catch (SQLException e) { e.printStackTrace();	}
-		
+		} catch (SQLException ex) {System.out.println(ex.getMessage());	}
 		return null;
 	}
 
+	public String getCampo() {
+		try {
+			ResultSet rs = ps.executeQuery();
+			if ( rs.next() ) {
+				return rs.getString(1);
+			}
+		} catch (SQLException ex) {System.out.println(ex.getMessage());	}
+		return null;
+	}
 }

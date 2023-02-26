@@ -1,37 +1,29 @@
 package dao;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import bean.Pelicula;
 
 public class PeliculaDAO {
 	
 db.Db db = new db.Db("Cinestar");
-// bLista ->true	: Devuelve una lista de peliculas.
-// 			false	: Devuelve una matriz.
 
-public Object getPeliculas (int id, boolean bLista) {
+public String [][] getPeliculas (Object id) {
 	db.Sentencia (String.format("call sp_getPeliculas(%s)",id));
-	String [][] mRegistros= db.getRegistros();
-	
-	if (mRegistros == null) return null;
-	if (!bLista) return mRegistros;
-	
-	List<Pelicula>lstPeliculas = new ArrayList<>();
-	for (String [] aRegistro : mRegistros)
-		lstPeliculas.add(new Pelicula(aRegistro));
-	return lstPeliculas;
+	return db.getRegistros(); 
 }
 
-
-
-
-public Object getPelicula(String id, boolean bEntidad) {
-	db.Sentencia (String.format("call sp_getPelicula(%s)",id));
-	String [] aRegistro= db.getRegistro();
+public String [] getPelicula(Object idPelicula) {
+	db.Sentencia (String.format("call sp_getPelicula(%s)",idPelicula));
+	String[] aPelicula = db.getRegistro();
+	if (aPelicula == null) return null;
+	aPelicula[2] = new SimpleDateFormat("EEEE dd 'de' MMMMM 'de' yyyy").format (new Date(aPelicula[2]));
 	
-	if (aRegistro == null) return null;
-	if (!bEntidad) return aRegistro;
-	return new Pelicula(aRegistro);
+	db.Sentencia (String.format("select getGenerosDetalle('%s')",aPelicula[4]));
+	aPelicula[4] = db.getCampo();
+	
+	return aPelicula; 
 }
 }
 

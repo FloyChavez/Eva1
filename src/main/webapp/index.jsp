@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" 
 pageEncoding="ISO-8859-1" %>
-
 <!DOCTYPE html>
 <html lang="es">
 	<head>
@@ -19,11 +18,14 @@ pageEncoding="ISO-8859-1" %>
 				<a href="http://www.cinestar.com.pe/starcard/"><img src="img/varios/starcard.jpg"/></a>
 				<a href="http://www.cinestar.com.pe/cinefilo_star/"><img src="img/varios/cinefilo-star.jpg"/></a>
 			</div>
+			
 			<div class="contenido-interno" id="contenido-interno">
 				<% Object id=session.getAttribute("id"); 
 				if(id == null){%>
-				<%	} else if (id.equals("pelicula")){%> <%@ include file="WEB-INF/pelicula.jsp" %>
-				<%	} else if (id.equals("peliculas")){%> <%@ include file="WEB-INF/peliculas.jsp" %>
+				<%	} else if (id.equals("1") || id.equals("2")){%> <%@ include file="WEB-INF/peliculasArray.jsp" %>
+				<%	} else if (id == "3" ){%> <%@ include file="WEB-INF/peliculaArray.jsp" %>
+				<%	} else if (id == "4" ){%> <%@ include file="WEB-INF/verCinesArray.jsp" %>
+				<%	} else if (id == "5" ){%> <%@ include file="WEB-INF/verCineArray.jsp" %>
 				<%}%>
 			</div>
 		</div>
