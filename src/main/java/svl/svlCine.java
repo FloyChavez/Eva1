@@ -5,6 +5,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
+
+import bean.Cine;
 import dao.CineDAO;
 
 	public class svlCine extends HttpServlet {
@@ -21,16 +24,31 @@ import dao.CineDAO;
 		Object idCine = request.getParameter("idCine");
 		
 		if(idCine == null) {
+			/* Array
 			String [][] mCines =daocine.getVerCines();
-			session.setAttribute("id",mCines== null ? null : "4");
+			session.setAttribute("id",mCines== null ? null : "3");
 			session.setAttribute("mCines",mCines);
+			*/
+			
+			List<Cine>lstCine =daocine.getCinesList();
+			session.setAttribute("id",lstCine== null ? null : "3");
+			session.setAttribute("lstCine",lstCine);
+			
 			
 		}else {
+			/*Array
 			String[] aCine = daocine.getVerCine(idCine);
-			session.setAttribute("id",aCine == null ? null : "5");
+			session.setAttribute("id",aCine == null ? null : "4");
 			session.setAttribute("aCine",aCine);
 			session.setAttribute("mTarifas",daocine.getCineTarifas(idCine));
 			session.setAttribute("mPeliculas",daocine.getCinePeliculas(idCine));
+			*/
+			Cine Cine = daocine.getCineList(idCine);
+			session.setAttribute("id",Cine == null ? null : "4");
+			session.setAttribute("Cine",Cine);
+			session.setAttribute("lstCineTarifa",daocine.getCineTarifasList(idCine));
+			session.setAttribute("lstCinePelicula",daocine.getCinePeliculasList(idCine));
+			
 		}
 		response.sendRedirect("index.jsp");
 	}

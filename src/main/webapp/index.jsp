@@ -24,8 +24,8 @@ pageEncoding="ISO-8859-1" %>
 				if(id == null){%>
 				<%	} else if (id.equals("1") || id.equals("2")){%> <%@ include file="WEB-INF/peliculasArray.jsp" %>
 				<%	} else if (id == "3" ){%> <%@ include file="WEB-INF/peliculaArray.jsp" %>
-				<%	} else if (id == "4" ){%> <%@ include file="WEB-INF/verCinesArray.jsp" %>
-				<%	} else if (id == "5" ){%> <%@ include file="WEB-INF/verCineArray.jsp" %>
+				<%	} else if (id == "4" ){%> <%@ include file="WEB-INF/verCinesList.jsp" %>
+				<%	} else if (id == "5" ){%> <%@ include file="WEB-INF/verCineList.jsp" %>
 				<%}%>
 			</div>
 		</div>

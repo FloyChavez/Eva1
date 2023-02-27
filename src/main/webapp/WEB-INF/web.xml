@@ -10,7 +10,7 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
-    <description>svlPelicula.java</description>
+    <description>svlPeli</description>
     <display-name>svlPelicula</display-name>
     <servlet-name>svlPelicula</servlet-name>
     <servlet-class>svl.svlPelicula</servlet-class>
